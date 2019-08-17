@@ -42,10 +42,15 @@
     "ember-source": "~3.11.1",
     "eslint-plugin-ember": "^6.2.0",
     "eslint-plugin-node": "^9.0.1",
+    "less-loader": "^5.0.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.4"
   },
   "engines": {
     "node": "8.* || >= 10.*"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "require-dot-file": "^0.4.0"
   }
 }
