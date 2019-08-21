@@ -7,10 +7,14 @@ export default Factory.extend({
   },
 
   image(i){
-    return "https://dummyimage.com/300/09f/fff.png"
+    return "https://dummyimage.com/500x300/A9A9A9/fff"
   },
 
   title(i){
     return "Title" + i
+  },
+
+  description(i){
+    return "Description" + i
   }
 });

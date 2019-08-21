@@ -1,21 +1,23 @@
-<div class="container">
+<div class="container margin-top-20">
   <div class="row">
-    {{#each model as |game|}}
-      <div class="card col-md-4" style="width: 18rem;">
-        <img class="card-img-top" src="{{game.image}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{game.title}}</h5>
-          <p class="card-text">{{game.type}}</p>
-          <button type="button" class="btn btn-primary" {{action 'open' game}} data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button>
+    {{#if model}}
+      {{#each model as |game|}} <!--Add items instead of model for filtering-->
+        <div class="col-md-4 margin-top-20" style="width: 18rem;">
+          <div class="card">
+            <img class="card-img-top" src="{{game.image}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{game.title}}</h5>
+              <p class="card-text">{{game.type}}</p>
+              <p class="card-text">{{game.description}}</p>
+              <i class="fas fa-ellipsis-v" data-toggle="dropdown" {{action 'open' game}} data-toggle="modal"
+                 data-target="#exampleModal"></i>
+            </div>
+          </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    {{/if}}
   </div>
 </div>
-
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -38,11 +40,15 @@
             {{input type="text" class="form-control" value=aliasInput placeholder="Alias"
                     data-test-rr="new-band-input"}}
           </div>
+          <div class="form-group">
+            <label for="alias">Description</label>
+            {{textarea class="form-control" value=description placeholder="Description"}}
+          </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  onclick={{action "save"}}>Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Discard</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick={{action "save"}}>Save</button>
       </div>
     </div>
   </div>
